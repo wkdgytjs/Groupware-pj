@@ -1,7 +1,7 @@
-# Grouware Project
+# Police office + Grouware Project 🚔
 > 2023.03.14 ~ 2023.04.06까지 진행한 그룹웨어 기본 연동 기능 구현 프로젝트입니다.
 
-## Description
+## ❕ Description ❕
 <table>
   <tr>
     <td>
@@ -14,7 +14,7 @@
 
 <br>
 
-## 기획 배경 및 해결하고자 하는 문제
+## ➰기획 배경 및 해결하고자 하는 문제
 <table>
   <tr>
     <td>
@@ -26,12 +26,12 @@
 
 <br>
 
-## 프로젝트 구성(Spring MVC Model2)
+## ➰프로젝트 구성(Spring MVC Model2)
 ![design](https://user-images.githubusercontent.com/116870668/233907336-53c5b845-5826-420e-b0ec-0279f3a232e5.jpg)
 
 <br>
 
-## 개발 관련 문서
+## ➰개발 관련 문서
 <details>
 <summary> ERD </summary>
 
@@ -41,7 +41,7 @@
 
 <br>
 
-## 사용한 기술 및 배포 환경
+## ➰사용한 기술 및 배포 환경
 <table>
   <tr>
     <th>OS</th>
@@ -61,7 +61,7 @@
 
 <br>
 
-## Team (담당한 업무)
+## ➰Team (담당한 업무)
 <details>
 <summary> 강창신 </summary>
 
