@@ -54,7 +54,7 @@
   <tr>
     <td>Windows 10</td>
     <td>MySqL</td>
-    <td>IntelliJ, VSCode</td>
+    <td>IntelliJ, Visual Studio Code</td>
     <td>Spring Boot</td>
     <td>Java, HTML, CSS, Javascript</td>
     <td>CodeDeploy, IAM, EC2, S3, RDS</td>
