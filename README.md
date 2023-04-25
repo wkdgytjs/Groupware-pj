@@ -1,11 +1,11 @@
 # Police office + Grouware Project 🚔
-> 2023.03.14 ~ 2023.04.06까지 진행한 그룹웨어 기본 연동 기능 구현 프로젝트입니다.  🔗Project Link : [PoliceOfficeGroupware](https://github.com/ckdtls1124/PoliceOfficeGroupware/tree/master_upload)
+> 2023.03.14 ~ 2023.04.06까지 진행한 그룹웨어 기본 연동 기능 구현 프로젝트입니다.
 
 ## ❕ Description ❕
 <table>
   <tr>
     <td>
-지구대에서 쓰일 만한 관리자 페이지를 가정하여 제작한 사이트
+지구대에서 쓰일 만한 관리자 페이지를 가정하여 제작한 사이트 🔗Project Link : [PoliceOfficeGroupware](https://github.com/ckdtls1124/PoliceOfficeGroupware/tree/master_upload)
     </td>
   </tr>
 </table>
