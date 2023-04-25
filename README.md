@@ -63,7 +63,7 @@
 
 ## ➰Team (담당한 업무)
 <details>
-<summary>  [강창신] (https://github.com/ckdtls1124)  </summary>
+<summary> 강창신 </summary>
 
 1. 결재문서 CRUD
 2. 근태 기능
