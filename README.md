@@ -100,5 +100,5 @@
 
 <br>
 
-## ➰ Contact
+## ➰ nformation
 Project Link : [PoliceOfficeGroupware](https://github.com/ckdtls1124/PoliceOfficeGroupware/tree/master_upload)
