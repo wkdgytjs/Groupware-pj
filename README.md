@@ -88,7 +88,7 @@
 
 1. 게시판CRUD
 2. 댓글CRUD
-3. 전체적인 디자인 수정
+3. 각 페이지 design frame(Html,CSS) 제작
 </details>
 <details>
 <summary> 허인경 </summary>
