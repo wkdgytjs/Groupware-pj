@@ -49,14 +49,14 @@
 <table>
   <tr>
     <th>OS</th>
-    <th>Infra & DB</th>
+    <th>Database</th>
     <th>IDE</th>
     <th>Framework</th>
     <th>Language</th>
   </tr>
   <tr>
     <td>Windows 10</td>
-    <td>MySqL, AWS</td>
+    <td>MySqL</td>
     <td>IntelliJ, Visual Studio Code</td>
     <td>Spring Boot</td>
     <td>Java, HTML, CSS, Javascript</td>
