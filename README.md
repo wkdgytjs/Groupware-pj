@@ -102,15 +102,14 @@
 3. KakaoMap-API
 </details>
 
-<br>
 
 ***
-## 📝 게시판 기능
+## 📋 게시판 기능
 
 <table>
   <tr>
     <td>
-게시판은 공지게시판으로 지정하여 관리자 권한이 있는 사용자만 등록, 수정, 삭제 권한을 부여처리 하였습니다.
+게시판은 공지게시판으로 지정하여 관리자 권한이 있는 사용자만 등록, 수정, 삭제 권한을 부여하여 처리 하였습니다.
     </td>
   </tr>
 </table>
@@ -138,8 +137,41 @@
 > 사용자 한명이 여러 게시글을 작성할 수 있으므로 police_officer 테이블은 board테이블과 1:N 관계 설정
 </details>
 
+***
+## ✏️ 댓글 기능
+
+<table>
+  <tr>
+    <td>
+댓글은 게시글 상세 페이지에서 작성가능하며 본인의 댓글만 수정, 삭제 권한을 부여하여 처리하였습니다.
+    </td>
+  </tr>
+</table>
 
 <br>
+
+## ➰ 댓글 View 영상
+![댓글](https://user-images.githubusercontent.com/116870668/234489338-dde939bc-fa1a-4fbc-a3c2-d58770c2eb2a.gif)
+
+<br>
+
+### 디렉토리 구성 및 ERD
+<details>
+<summary>디렉토리 구성</summary>
+  
+![reply](https://user-images.githubusercontent.com/116870668/234490549-484c08b3-5cfa-4261-9301-900ce0c00c18.jpg)
+  
+> 댓글은 게시글 상세페이지에서 작성할 수 있으므로 View단 파일을 별도로 생성하지 않고, boardDetail.html에 처리해줬습니다.
+</details>
+<details>
+  
+<summary>ERD</summary>
+  
+![replyDB](https://user-images.githubusercontent.com/116870668/234490541-27b061cd-7e77-4848-9e64-17e7b4cb91b0.jpg)
+  
+> 사용자 한명이 게시글 한 곳에 댓글을 여러개 작성할 수 있으므로 board_reply 테이블은 police_officer, board 테이블과 각각 N:1 관계 설정
+</details>
+
 
 🔗Project(team) github Link : [PoliceOfficeGroupware](https://github.com/ckdtls1124/PoliceOfficeGroupware/tree/master_upload)
 
