@@ -29,12 +29,19 @@
 
 
 ## ➰개발 관련 문서
-
-### 비즈니스 로직
+<details>
+<summary>비즈니스 로직</summary>
+  
 ![BusinessLogic](https://user-images.githubusercontent.com/116870668/234459286-41b37829-c274-42ec-a412-015c749e4fe1.png)
 
-### ERD 
+</details>
+<details>
+  
+<summary>ERD</summary>
+  
 ![DB design_2](https://user-images.githubusercontent.com/116870668/233940813-2613f5dc-58da-4786-81c3-f737ff3930f9.png)
+
+</details>
 
 <br>
 
