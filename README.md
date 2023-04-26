@@ -153,6 +153,8 @@
 ## ➰ 댓글 View 영상
 ![댓글](https://user-images.githubusercontent.com/116870668/234489338-dde939bc-fa1a-4fbc-a3c2-d58770c2eb2a.gif)
 
+<br>
+
 ### 디렉토리 구성 및 ERD
 <details>
 <summary>디렉토리 구성</summary>
@@ -169,12 +171,8 @@
   
 > 사용자 한명이 게시글 한 곳에 댓글을 여러개 작성할 수 있으므로 board_reply 테이블은 police_officer, board 테이블과 각각 N:1 관계 설정
 </details>
-
-### 게시글, 댓글기능 개발 과정에서의 아쉬운 점
+## ➰ 게시글, 댓글기능 개발 과정에서의 아쉬운 점
 > 한 사용자가 게시글 상세페이지에서 새로고침이나 수정을 하거나 댓글 작성, 수정, 삭제시 조회수가 올라가는 문제점이 발생하였습니다.
-
-<br>
-
 <details>
 <summary>BoardController 게시글 상세목록 code</summary>
 
@@ -239,7 +237,6 @@
         }
     }  
 ```  
-  
 </details>
 <details>
 <summary>BoardService 조회수 증가 code</summary> 
@@ -310,10 +307,15 @@
     }
   ```        
 <br>  
-
+## ➰ 추후 해결방안
+       
+<table>
+  <tr>
+    <td>댓글 기능 실행 시 다시 로딩하지 않고 자바스크립트를 이용해서 비동기식으로 XML을 이용하여 서버와 통신하는 방식인 ajax로 추후에 업데이트를 해 볼 생각입니다.
+    </td>
+  </tr>
+</table>
   
-
-
   
 ***
   
