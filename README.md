@@ -104,6 +104,9 @@
 
 
 ***
+
+<br>
+
 ## 📋 게시판 기능
 
 <table>
@@ -114,12 +117,9 @@
   </tr>
 </table>
 
-<br>
-
 ## ➰ 게시판 View 영상
 ![게시판](https://user-images.githubusercontent.com/116870668/234463107-6290e062-10c1-4d1e-87ac-c8c97b2c210e.gif)
 
-<br>
 
 ### 디렉토리 구성 및 ERD
 <details>
@@ -138,6 +138,8 @@
 </details>
 
 ***
+<br>
+
 ## ✏️ 댓글 기능
 
 <table>
@@ -148,12 +150,8 @@
   </tr>
 </table>
 
-<br>
-
 ## ➰ 댓글 View 영상
 ![댓글](https://user-images.githubusercontent.com/116870668/234489338-dde939bc-fa1a-4fbc-a3c2-d58770c2eb2a.gif)
-
-<br>
 
 ### 디렉토리 구성 및 ERD
 <details>
