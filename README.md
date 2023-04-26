@@ -261,8 +261,8 @@
   한 사용자가 하나의 게시글을 조회했을때 쿠키가 생성되면서 나머지 게시글을 조회했을때는 조회수증가가 되지않는 <br>
   문제점이 발생하였습니다.
   
-### 프로젝트 기간내에 생각한 해결방안
- - boardDetail.html에서 key의 value를 true로 설정해놓았다.
+### ❕ 프로젝트 기간내에 생각한 해결방안
+ - boardDetail.html에서 key의 value를 true로 설정
   ```
      <a th:href="@{/replyDelete(boardId=${list.boardId},replyId=${list.replyId},key=true)}"
   ```
@@ -286,7 +286,7 @@
         return "redirect:/boardDetail/" + replyDto.getBoardId() + "/" + key;
     }
   ```  
- - BoardController에 @PathVariable 어노테이션을 이용하여 key값을 받아와, key값에 따라 조회수 카운팅 조건을 다르게 추가 해주었습니다.
+ - BoardController에 @PathVariable 어노테이션을 이용하여 key값을 받아와, key값에 따라 조회수 카운팅 조건을 다르게 추가
   ```Java
      // 게시글 상세 목록
     @GetMapping("/boardDetail/{boardId}/{key}")
@@ -307,7 +307,7 @@
   ```        
 <br> 
        
-## ➰ 추후 해결방안
+### ❕ 추후 해결방안
 <table>
   <tr>
     <td>댓글 기능 실행 시 다시 로딩하지 않고 자바스크립트를 이용해서 비동기식으로 XML을 이용하여 서버와 통신하는 방식인 ajax로 추후에 업데이트를 해 볼 생각입니다.
