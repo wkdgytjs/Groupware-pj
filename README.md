@@ -170,6 +170,83 @@
 > 사용자 한명이 게시글 한 곳에 댓글을 여러개 작성할 수 있으므로 board_reply 테이블은 police_officer, board 테이블과 각각 N:1 관계 설정
 </details>
 
+### 댓글기능 개발 과정
+
+```Java
+// 게시글 상세 목록
+    @GetMapping("/boardDetail/{boardId}/{key}")
+    public String boardDetail(@PathVariable("boardId") Long boardId, @AuthenticationPrincipal UserDetails user,
+                              @PathVariable(value = "key", required = false) String key,
+                              Model model) {
+
+//        Cookie[] cookies= request.getCookies();
+//
+//        // 비교하기 위해 새로운 쿠키
+//        Cookie oldCookie=null;
+//
+//        //cookies가 null이 아니면 cookie의 이름이 postView인지 확인하고, 맞으면 oldCookie에 이 cookie를 대입
+//        if(cookies!=null){
+//            for (Cookie cookie : cookies) {
+//                if (cookie.getName().equals("postView")) {
+//                    oldCookie = cookie;
+//                }
+//            }
+//        }
+
+        // key값이 true이거나 null이 아닌경우 조회수 카운팅 X
+        if (key.equals("true") && key != null) {
+            boardService.noUpViews(boardId);
+
+            // key값이 true가 아니거나 null인 경우 조회수 카운팅 O
+        } else {
+            // 게시글 조회수 1증가
+            boardService.upViews(boardId);
+        }
+
+        // 해당 게시판의 번호를 받아 게시글 상세페이지로 넘겨줌
+        BoardDto boardDtos = boardService.boardDetailList(boardId);
+
+
+        if (boardDtos != null) {
+
+            model.addAttribute("boardDtos", boardDtos);
+
+            //만일 oldCookie가 null이 아니고 oldCookie값에 id값이 없을 때
+            // (있다면 이미 조회한 게시물로 조회수가 올라가지 않음) 조회수 올리는 메소드 호출
+//            if (oldCookie!=null) {
+//
+//                if(!oldCookie.getValue().contains("["+ boardId.toString() +"]")){
+//                    oldCookie.setValue(oldCookie.getValue() + "_[" + boardId + "]");
+//                    oldCookie.setMaxAge(-1);//브라우저 닫으면 쿠키 삭제 닫기전까진 살아있음
+//                    response.addCookie(oldCookie);
+//                    //쿠기를 추가 시키고 조회수 증가시킴
+//                    boardService.upViews(boardId);
+//                }
+//            // oldCookie가 null일 경우 postView라는 이름으로 쿠키를 만들고 조회수 올리는 메소드 호출
+//            }else{
+//                Cookie newCookie = new Cookie("postView", "[" + boardId + "]");
+//                newCookie.setMaxAge(-1);
+//                response.addCookie(newCookie);
+//
+//                boardService.upViews(boardId);
+
+
+            // 댓글 작성시 로그인 된 사용자 이름 가져오기
+            PoliceDto policeName = policeService.policeEmailSearch(user.getUsername());
+            model.addAttribute("policeReplyName", policeName.getPoliceName());
+
+            // 댓글 목록
+            List<ReplyDto> replyList = replyService.replyList(boardId);
+            model.addAttribute("replyList", replyList);
+
+            return "/board/boardDetail";
+        } else {
+            return null;
+        }
+    }
+
+```
+
 
 🔗Project(team) github Link : [PoliceOfficeGroupware](https://github.com/ckdtls1124/PoliceOfficeGroupware/tree/master_upload)
 
