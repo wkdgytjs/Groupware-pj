@@ -104,12 +104,13 @@
 
 <br>
 
+***
 ## 📝 게시판 기능
 
 <table>
   <tr>
     <td>
-게시판은 공지게시판으로 지정하여 관리자 권한이 있는 사용자만 등록, 수정, 삭제 권한을 가지게 처리하였습니다.
+게시판은 공지게시판으로 지정하여 관리자 권한이 있는 사용자만 등록, 수정, 삭제 권한을 부여처리 하였습니다.
     </td>
   </tr>
 </table>
@@ -121,7 +122,22 @@
 
 <br>
 
-### 게시판 개발과정
+### 디렉토리 구성 및 ERD
+<details>
+<summary>디렉토리 구성</summary>
+  
+![board](https://user-images.githubusercontent.com/116870668/234480544-623e77f3-2864-4a72-a0ce-c9d6751801df.jpg)
+
+</details>
+<details>
+  
+<summary>ERD</summary>
+  
+![boardDB](https://user-images.githubusercontent.com/116870668/234480550-c1976571-c597-4e72-baf5-08f3841172fc.jpg)
+  
+> 사용자 한명이 여러 게시글을 작성할 수 있으므로 police_officer 테이블은 board테이블과 1:N 
+</details>
+
 
 <br>
 
