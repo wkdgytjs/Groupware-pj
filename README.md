@@ -133,7 +133,7 @@
   
 <summary>ERD</summary>
   
-![boardDB](https://user-images.githubusercontent.com/116870668/234480550-c1976571-c597-4e72-baf5-08f3841172fc.jpg)
+![boardDB](https://user-images.githubusercontent.com/116870668/234481357-25114d5d-a33a-47fe-a064-0cdccb5cd90c.jpg)
   
 > 사용자 한명이 여러 게시글을 작성할 수 있으므로 police_officer 테이블은 board테이블과 1:N 관계 설정
 </details>
