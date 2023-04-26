@@ -33,12 +33,12 @@
 <br>
 
 ## ➰개발 관련 문서
-<details>
-<summary> ERD </summary>
 
+### 비즈니스 로직
+![BusinessLogic](https://user-images.githubusercontent.com/116870668/234459286-41b37829-c274-42ec-a412-015c749e4fe1.png)
+
+### ERD 
 ![DB design_2](https://user-images.githubusercontent.com/116870668/233940813-2613f5dc-58da-4786-81c3-f737ff3930f9.png)
-
-</details>
 
 <br>
 
@@ -46,19 +46,17 @@
 <table>
   <tr>
     <th>OS</th>
-    <th>Database</th>
+    <th>Infra & DB</th>
     <th>IDE</th>
     <th>Framework</th>
     <th>Language</th>
-    <th>AWS</th>
   </tr>
   <tr>
     <td>Windows 10</td>
-    <td>MySqL</td>
+    <td>MySqL, AWS</td>
     <td>IntelliJ, Visual Studio Code</td>
     <td>Spring Boot</td>
     <td>Java, HTML, CSS, Javascript</td>
-    <td>CodeDeploy, IAM, EC2, S3, RDS</td>
   </tr>
 </table>
 
@@ -100,6 +98,27 @@
 2. left-Menubar 제작
 3. KakaoMap-API
 </details>
+
+<br>
+
+## 📝 게시판 기능
+
+<table>
+  <tr>
+    <td>
+게시판은 공지게시판으로 지정하여 관리자 권한이 있는 사용자만 등록, 수정, 삭제 권한을 가지게 처리하였습니다.
+    </td>
+  </tr>
+</table>
+
+<br>
+
+## ➰ 게시판 View 영상
+![게시판](https://user-images.githubusercontent.com/116870668/234463107-6290e062-10c1-4d1e-87ac-c8c97b2c210e.gif)
+
+<br>
+
+### 게시판 개발과정
 
 <br>
 
