@@ -27,10 +27,6 @@
 
 <br>
 
-## ➰프로젝트 구성(Spring MVC Model2)
-![design](https://user-images.githubusercontent.com/116870668/233907336-53c5b845-5826-420e-b0ec-0279f3a232e5.jpg)
-
-<br>
 
 ## ➰개발 관련 문서
 
