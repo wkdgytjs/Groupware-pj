@@ -178,36 +178,24 @@
 <details>
 <summary>BoardController 게시글 상세목록 code</summary>
 
-```Java
-  
-      // 게시글 상세 목록
-    @GetMapping("/boardDetail/{boardId}/{key}")
+```Java 
+     // 게시글 상세 목록
+    @GetMapping("/boardDetail/{boardId}")
     public String boardDetail(@PathVariable("boardId") Long boardId, @AuthenticationPrincipal UserDetails user,
-                              @PathVariable(value = "key", required = false) String key,
                               Model model) {
 
-//        Cookie[] cookies= request.getCookies();
-//
-//        // 비교하기 위해 새로운 쿠키
-//        Cookie oldCookie=null;
-//
-//        //cookies가 null이 아니면 cookie의 이름이 postView인지 확인하고, 맞으면 oldCookie에 이 cookie를 대입
-//        if(cookies!=null){
-//            for (Cookie cookie : cookies) {
-//                if (cookie.getName().equals("postView")) {
-//                    oldCookie = cookie;
-//                }
-//            }
-//        }
+        Cookie[] cookies= request.getCookies();
 
-        // key값이 true이거나 null이 아닌경우 조회수 카운팅 X
-        if (key.equals("true") && key != null) {
-            boardService.noUpViews(boardId);
+        // 비교하기 위해 새로운 쿠키
+        Cookie oldCookie=null;
 
-            // key값이 true가 아니거나 null인 경우 조회수 카운팅 O
-        } else {
-            // 게시글 조회수 1증가
-            boardService.upViews(boardId);
+        //cookies가 null이 아니면 cookie의 이름이 postView인지 확인하고, 맞으면 oldCookie에 이 cookie를 대입
+        if(cookies!=null){
+            for (Cookie cookie : cookies) {
+                if (cookie.getName().equals("postView")) {
+                    oldCookie = cookie;
+                }
+            }
         }
 
         // 해당 게시판의 번호를 받아 게시글 상세페이지로 넘겨줌
@@ -220,21 +208,21 @@
 
             //만일 oldCookie가 null이 아니고 oldCookie값에 id값이 없을 때
             // (있다면 이미 조회한 게시물로 조회수가 올라가지 않음) 조회수 올리는 메소드 호출
-//            if (oldCookie!=null) {
-//
-//                if(!oldCookie.getValue().contains("["+ boardId.toString() +"]")){
-//                    oldCookie.setValue(oldCookie.getValue() + "_[" + boardId + "]");
-//                    response.addCookie(oldCookie);
-//                    //쿠기를 추가 시키고 조회수 증가시킴
-//                    boardService.upViews(boardId);
-//                }
-//            // oldCookie가 null일 경우 postView라는 이름으로 쿠키를 만들고 조회수 올리는 메소드 호출
-//            }else{
-//                Cookie newCookie = new Cookie("postView", "[" + boardId + "]");
-//                newCookie.setMaxAge(-1);
-//                response.addCookie(newCookie);
-//
-//                boardService.upViews(boardId);
+            if (oldCookie!=null) {
+
+                if(!oldCookie.getValue().contains("["+ boardId.toString() +"]")){
+                    oldCookie.setValue(oldCookie.getValue() + "_[" + boardId + "]");
+                    response.addCookie(oldCookie);
+                    //쿠기를 추가 시키고 조회수 증가시킴
+                    boardService.upViews(boardId);
+                }
+            // oldCookie가 null일 경우 postView라는 이름으로 쿠키를 만들고 조회수 올리는 메소드 호출
+            }else{
+                Cookie newCookie = new Cookie("postView", "[" + boardId + "]");
+                newCookie.setMaxAge(-1);
+                response.addCookie(newCookie);
+
+                boardService.upViews(boardId);
 
 
             // 댓글 작성시 로그인 된 사용자 이름 가져오기
@@ -249,60 +237,78 @@
         } else {
             return null;
         }
-    }
-  
+    }  
 ```  
   
 </details>
 <details>
-<summary>BoardService 조회수 증가, 조회수 증가 방지 code</summary> 
+<summary>BoardService 조회수 증가 code</summary> 
   
 ```Java
-  
-  // 게시글 조회시 조회수 1증가
+    // 게시글 조회시 조회수 1증가
     @Transactional
     public void upViews(Long boardId) {
         boardRepository.updateViews(boardId);
     }
-
-    // 게시글 상세목록페이지에서 댓글 등록, 수정, 삭제시 조회수 증가방지
-    @Transactional
-    public void noUpViews(Long boardId) {
-        boardRepository.NoUpdateViews(boardId);
-    }
-  
 ```  
 </details>
 <details>
 <summary>BoardRepository 조회수 증가, 조회수 증가 방지 Native쿼리메소드 code</summary> 
   
 ```Java
-  
     @Modifying
     @Query(value = "update BoardEntity b set b.views=b.views+1 where b.boardId=:boardId")
     void updateViews(Long boardId);
-
-    @Modifying
-    @Query(value = "update BoardEntity b set b.views=b.views where b.boardId=:boardId")
-    void NoUpdateViews(Long boardId);
-  
 ```  
 </details>
-> 위 코드를 보면 조회수 증가방지를 위해 Cookie를 이용하였지만 아직 Cookie사용에 미숙한 부분이 있어서 <br>
+- 위 코드를 보면 조회수 증가방지를 위해 Cookie를 이용하였지만 아직 Cookie사용에 미숙한 부분이 있어서 <br>
   한 사용자가 하나의 게시글을 조회했을때 쿠키가 생성되면서 나머지 게시글을 조회했을때는 조회수증가가 되지않는 <br>
   문제점이 발생하였습니다.
   
 ### 프로젝트 기간내에 생각한 해결방안
+ - boardDetail.html에서 key의 value를 true로 설정해놓았다.
+  ```
+     <a th:href="@{/replyDelete(boardId=${list.boardId},replyId=${list.replyId},key=true)}"
+  ```
+ - BoardController의 메소드의 인자값으로 @RequestParam() 어노테이션을 넣어 key의 데이터값를 받아 return값에 key값을 같이 보내준다.   
+  ```Java
+     @PostMapping("/replyWrite")
+     public String replyWrite(@ModelAttribute ReplyDto replyDto, Model model,
+                             @RequestParam(value = "key", required = false) String key) {
 
-```
-  <td><a th:href="@{|/boardDetail/${list.boardId}/${key}|}" th:text="${list.boardTitle}"></a></td>
-  
-```
-```
-  
-  
-```
-  
+        // 댓글 작성
+        replyService.replyWrite(replyDto);
+//      System.out.println("id >>>"+replyDto.getBoardId());
+
+        // 댓글 목록 -> 게시글 id(댓글을 단 게시글의 id)의 리스트만 get
+        // 댓글을 작성하고 -> 게시글이 존재하는지 확인 -> DTO-> Entity -> 저장
+        // 상세목록페이지에 글번호와 댓글리스트를 가지고 같이 보낸다.
+        List<ReplyDto> replyList = replyService.replyList(replyDto.getBoardId());
+        model.addAttribute("replyList", replyList);
+
+        //게시글 id -> replyDto.getBoardId()/+ 조회수 key
+        return "redirect:/boardDetail/" + replyDto.getBoardId() + "/" + key;
+    }
+  ```  
+ - BoardController에 @PathVariable 어노테이션을 이용하여 key값을 받아와, key값에 따라 조회수 카운팅 조건을 다르게 추가 해주었습니다.
+  ```Java
+     // 게시글 상세 목록
+    @GetMapping("/boardDetail/{boardId}/{key}")
+    public String boardDetail(@PathVariable("boardId") Long boardId, @AuthenticationPrincipal UserDetails user,
+                              @PathVariable(value = "key", required = false) String key,
+                              Model model) {
+
+        // key값이 true이거나 null이 아닌경우 조회수 카운팅 X
+        if (key.equals("true") && key != null) {
+            boardService.noUpViews(boardId);
+
+            // key값이 true가 아니거나 null인 경우 조회수 카운팅 O
+        } else {
+            // 게시글 조회수 1증가
+            boardService.upViews(boardId);
+        }
+    }
+  ```        
 <br>  
 
   
