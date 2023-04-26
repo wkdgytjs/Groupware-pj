@@ -170,10 +170,17 @@
 > 사용자 한명이 게시글 한 곳에 댓글을 여러개 작성할 수 있으므로 board_reply 테이블은 police_officer, board 테이블과 각각 N:1 관계 설정
 </details>
 
-### 댓글기능 개발 과정
+### 게시글, 댓글기능 개발 과정에서의 아쉬운 점
+> 한 사용자가 게시글 상세페이지에서 새로고침이나 수정을 하거나 댓글 작성, 수정, 삭제시 조회수가 올라가는 문제점이 발생하였습니다.
+
+<br>
+
+<details>
+<summary>BoardController 게시글 상세목록 code</summary>
 
 ```Java
-// 게시글 상세 목록
+  
+      // 게시글 상세 목록
     @GetMapping("/boardDetail/{boardId}/{key}")
     public String boardDetail(@PathVariable("boardId") Long boardId, @AuthenticationPrincipal UserDetails user,
                               @PathVariable(value = "key", required = false) String key,
@@ -217,7 +224,6 @@
 //
 //                if(!oldCookie.getValue().contains("["+ boardId.toString() +"]")){
 //                    oldCookie.setValue(oldCookie.getValue() + "_[" + boardId + "]");
-//                    oldCookie.setMaxAge(-1);//브라우저 닫으면 쿠키 삭제 닫기전까진 살아있음
 //                    response.addCookie(oldCookie);
 //                    //쿠기를 추가 시키고 조회수 증가시킴
 //                    boardService.upViews(boardId);
@@ -244,9 +250,66 @@
             return null;
         }
     }
+  
+```  
+  
+</details>
+<details>
+<summary>BoardService 조회수 증가, 조회수 증가 방지 code</summary> 
+  
+```Java
+  
+  // 게시글 조회시 조회수 1증가
+    @Transactional
+    public void upViews(Long boardId) {
+        boardRepository.updateViews(boardId);
+    }
+
+    // 게시글 상세목록페이지에서 댓글 등록, 수정, 삭제시 조회수 증가방지
+    @Transactional
+    public void noUpViews(Long boardId) {
+        boardRepository.NoUpdateViews(boardId);
+    }
+  
+```  
+</details>
+<details>
+<summary>BoardRepository 조회수 증가, 조회수 증가 방지 Native쿼리메소드 code</summary> 
+  
+```Java
+  
+    @Modifying
+    @Query(value = "update BoardEntity b set b.views=b.views+1 where b.boardId=:boardId")
+    void updateViews(Long boardId);
+
+    @Modifying
+    @Query(value = "update BoardEntity b set b.views=b.views where b.boardId=:boardId")
+    void NoUpdateViews(Long boardId);
+  
+```  
+</details>
+> 위 코드를 보면 조회수 증가방지를 위해 Cookie를 이용하였지만 아직 Cookie사용에 미숙한 부분이 있어서 <br>
+  한 사용자가 하나의 게시글을 조회했을때 쿠키가 생성되면서 나머지 게시글을 조회했을때는 조회수증가가 되지않는 <br>
+  문제점이 발생하였습니다.
+  
+### 프로젝트 기간내에 생각한 해결방안
 
 ```
+  <td><a th:href="@{|/boardDetail/${list.boardId}/${key}|}" th:text="${list.boardTitle}"></a></td>
+  
+```
+```
+  
+  
+```
+  
+<br>  
+
+  
 
 
+  
+***
+  
 🔗Project(team) github Link : [PoliceOfficeGroupware](https://github.com/ckdtls1124/PoliceOfficeGroupware/tree/master_upload)
 
