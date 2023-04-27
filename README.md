@@ -67,25 +67,31 @@
 
 ## ➰Team (담당한 업무)
 <details>
-<summary> 강창신 </summary>
-
-1. 결재문서 CRUD
-2. 근태 기능
-3. naver-API
+<summary>강창신 </summary>  
+  
+1. 팀장
+2. Business Logic & DB 설계 [-코드보기](https://github.com/ckdtls1124/Groupware_Project/wiki/Business-Logic-&-DB)
+3. 결재문서 CRUD [-코드보기](https://github.com/ckdtls1124/Groupware_Project/wiki/Memorandum-CRUD) 
+4. naver-API
+5. 영화 API(Kobis API) [-코드보기](https://github.com/ckdtls1124/Groupware_Project/wiki/Movie-API(Kobist-API))
+6. Chatbot [-코드보기](https://github.com/ckdtls1124/Groupware_Project/wiki/Chatbot)
 </details>
 <details>
 <summary> 김득주 </summary>
 
 1. 로그인&Spring Security
 2. 아이디/비밀번호 찾기
+3. 공공데이터 버스 API
 </details>
 <details>
 <summary> 이지창 </summary>
 
-1. 회원CRUD
-2. 부서CRUD
-3. FullCalendar-API
-4. AWS EC2 배포
+1. 회원CRUD [-코드보기](https://github.com/jichang-lee/Groupware-Project/wiki/%ED%9A%8C%EC%9B%90-%EA%B8%B0%EB%8A%A5)
+2. 부서CRUD [-코드보기](https://github.com/jichang-lee/Groupware-Project/wiki/%EB%B6%80%EC%84%9C-%EA%B8%B0%EB%8A%A5)
+3. DB 설계
+4. FullCalendar-API
+5. AWS EC2 배포
+6. 날씨 API 
 </details>
 <details>
 <summary> 장효선 </summary>
@@ -93,6 +99,7 @@
 1. 게시판CRUD
 2. 댓글CRUD
 3. 각 페이지 design frame(Html,CSS) 제작
+4. 영화(Kobis API)
 </details>
 <details>
 <summary> 허인경 </summary>
@@ -100,6 +107,8 @@
 1. 사건CRU
 2. left-Menubar 제작
 3. KakaoMap-API
+4. 공공데이터 날씨 API
+5. 공공데이터 분실물 API
 </details>
 
 
