@@ -42,7 +42,19 @@ public class PoliceDto {
 
     private DeptEntity dept;
 
-    public static PoliceDto officerView(PoliceEntity policeEntity){
+
+
+    public static PoliceDto teamDtoid(PoliceEntity policeEntity) {
+
+        PoliceDto policeDto = new PoliceDto();
+        policeDto.setEmail(policeEntity.getEmail());
+        policeDto.setPoliceNumber(policeEntity.getPoliceNumber());
+        return policeDto;
+    }
+
+
+
+    public static PoliceDto entityToDtoNoPassword(PoliceEntity policeEntity){
         PoliceDto police = new PoliceDto();
         police.setPoliceId(policeEntity.getPoliceId());
 //        police.setPassword(passwordEncoder.encode(policeDto.getPassword()));
@@ -59,48 +71,5 @@ public class PoliceDto {
         police.setCreateTime(policeEntity.getCreateTime());
         police.setDept(policeEntity.getDept());
         return police;
-    }
-    public static PoliceDto teamDtoid(PoliceEntity policeEntity) {
-
-        PoliceDto policeDto = new PoliceDto();
-        policeDto.setEmail(policeEntity.getEmail());
-        policeDto.setPoliceNumber(policeEntity.getPoliceNumber());
-        return policeDto;
-    }
-
-    public static PoliceDto teamDtopw(PoliceEntity policeEntity) {
-
-        PoliceDto policeDto=new PoliceDto();
-
-        policeDto.setPoliceId(policeEntity.getPoliceId());
-        policeDto.setEmail(policeEntity.getEmail());
-        policeDto.setPassword(policeEntity.getPassword());
-        policeDto.setPoliceName(policeEntity.getPoliceName());
-        policeDto.setPoliceNumber(policeEntity.getPoliceNumber());
-        policeDto.setPoliceAddress(policeEntity.getPoliceAddress());
-        policeDto.setDetailAddress(policeEntity.getDetailAddress());
-        policeDto.setPolicePhone(policeEntity.getPolicePhone());
-        policeDto.setCreateTime(policeEntity.getCreateTime());
-//        policeDto.setUpdateTime(policeEntity.getUpdateTime());
-        return policeDto;
-    }
-
-    public static PoliceDto toDtoName(PoliceEntity policeEntity) {
-        PoliceDto policeDto=new PoliceDto();
-
-        policeDto.setPoliceName(policeEntity.getPoliceName());
-
-        return  policeDto;
-
-    }
-
-    public static PoliceDto toDtoId(PoliceEntity policeEntity) {
-        PoliceDto policeDto=new PoliceDto();
-
-        policeDto.setPoliceId(policeEntity.getPoliceId());
-        policeDto.setPoliceName(policeEntity.getPoliceName());
-
-        return  policeDto;
-
     }
 }

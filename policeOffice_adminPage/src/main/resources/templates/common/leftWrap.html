@@ -7,7 +7,7 @@
 </head>
 
 <body>
-  <div id="all-container-wrap" th:fragment="left-wrap">
+<div id="all-container-wrap" th:fragment="left-wrap">
 
     <!--왼쪽 메뉴바-->
     <link rel="stylesheet" th:href="@{/css/common/reset.css}">
@@ -82,10 +82,22 @@
               </ul>
             </div>
 
-            <div class="naver-api">
-              <img src="/img/naver.png" alt="naver-logo"><a th:href="@{/api/naverAPIIndex}">NAVER WORKPLACE</a>
+            <div class="api">
+              <ul>
+                <li>
+                  <img src="/img/naver.png" alt="naver-logo"><a href="#">NAVER WORKPLACE</a>
+                </li>
+                <li>
+                  <img src="/img/weather.png" alt="weather-icon"><a th:href="@{/my/weather}">날씨조회</a>
+                </li>
+                <li>
+                  <img src="/img/lost.png" alt="lostItem-icon"><a th:href="@{/my/lostGoods}">분실물조회</a>
+                </li>
+                <li>
+                  <img src="/img/bus.png" alt="lostItem-icon"><a th:href="@{/my/bus}">버스정류장조회</a>
+                </li>
+              </ul>
             </div>
-
           </div>
         </div>
       </div>
