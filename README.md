@@ -15,7 +15,7 @@
 
 <br>
 
-## ➰기획 배경 및 해결하고자 하는 문제
+## ➰프로젝트 주제 및 선정배경
 <table>
   <tr>
     <td>
@@ -124,7 +124,7 @@
   </tr>
 </table>
 
-## ➰ 게시판 View 영상
+## ➰게시판 View 영상
 ![게시판](https://user-images.githubusercontent.com/116870668/234463107-6290e062-10c1-4d1e-87ac-c8c97b2c210e.gif)
 
 
@@ -156,7 +156,7 @@
   </tr>
 </table>
 
-## ➰ 댓글 View 영상
+## ➰댓글 View 영상
 ![댓글](https://user-images.githubusercontent.com/116870668/234489338-dde939bc-fa1a-4fbc-a3c2-d58770c2eb2a.gif)
 
 <br>
@@ -178,7 +178,7 @@
 > 사용자 한명이 게시글 한 곳에 댓글을 여러개 작성할 수 있으므로 board_reply 테이블은 police_officer, board 테이블과 각각 N:1 관계 설정
 </details>
 
-## ➰ 게시글, 댓글기능 개발 과정에서의 문제점
+## ➰게시글, 댓글기능 개발 과정에서의 문제점
 > 한 사용자가 게시글 상세페이지에서 새로고침이나 수정을 하거나 댓글 작성, 수정, 삭제시 조회수가 올라가는 문제점이 발생하였습니다.
 <details>
 <summary>BoardController 게시글 상세목록 code</summary>
@@ -316,7 +316,7 @@
   ```        
 <br> 
        
-### ❕ 추후 해결방안
+### ❕추후 해결방안
 <table>
   <tr>
     <td>댓글 기능 실행 시 다시 로딩하지 않고 자바스크립트를 이용해서 비동기식으로 XML을 이용하여 서버와 통신하는 방식인 ajax를 사용해 추후에 업데이트를 해 볼 생각입니다.
