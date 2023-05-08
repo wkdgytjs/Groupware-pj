@@ -70,11 +70,11 @@
 <summary>강창신 </summary>  
   
 1. 팀장
-2. Business Logic & DB 설계 [-코드보기](https://github.com/ckdtls1124/Groupware_Project/wiki/Business-Logic-&-DB)
-3. 결재문서 CRUD [-코드보기](https://github.com/ckdtls1124/Groupware_Project/wiki/Memorandum-CRUD) 
+2. Business Logic & DB 설계 
+3. 결재문서 CRUD [-코
 4. naver-API
-5. 영화 API(Kobis API) [-코드보기](https://github.com/ckdtls1124/Groupware_Project/wiki/Movie-API(Kobist-API))
-6. Chatbot [-코드보기](https://github.com/ckdtls1124/Groupware_Project/wiki/Chatbot)
+5. 영화 API(Kobis API) 
+6. Chatbot 
 </details>
 <details>
 <summary> 김득주 </summary>
@@ -86,8 +86,8 @@
 <details>
 <summary> 이지창 </summary>
 
-1. 회원CRUD [-코드보기](https://github.com/jichang-lee/Groupware-Project/wiki/%ED%9A%8C%EC%9B%90-%EA%B8%B0%EB%8A%A5)
-2. 부서CRUD [-코드보기](https://github.com/jichang-lee/Groupware-Project/wiki/%EB%B6%80%EC%84%9C-%EA%B8%B0%EB%8A%A5)
+1. 회원CRUD 
+2. 부서CRUD 
 3. DB 설계
 4. FullCalendar-API
 5. AWS EC2 배포
